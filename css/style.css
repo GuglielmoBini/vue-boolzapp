@@ -1,0 +1,65 @@
+body {
+  height: 95.1vh;
+  background-image: linear-gradient(#009688 15%, #dcdbd2 15%, #dcdbd2);
+}
+
+li {
+  list-style: none;
+}
+
+.container > .row {
+  height: 800px;
+  background-color: white;
+}
+
+.col-4 {
+  border-right: 1px solid black;
+}
+
+.profile-pic {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#sidebar {
+  position: relative;
+}
+#sidebar header > div:first-child i,
+#main-content header i,
+#main-content footer i {
+  color: #b1b1b1;
+}
+
+#sidebar header > div:nth-child(2) {
+  height: 100px;
+  background-color: #8edafc;
+}
+
+#sidebar header > div:last-child {
+  height: 60px;
+  background-color: #eaeaea;
+}
+
+#list {
+  height: 560px;
+  overflow-y: auto;
+}
+
+#list li {
+  border-bottom: 1px solid grey;
+}
+
+#sidebar header > div:first-child,
+#main-content header,
+#main-content footer {
+  height: 80px;
+  background-color: #eaeaea;
+}
+
+#main-content main {
+  height: 640px;
+  overflow-y: auto;
+  background-image: url(../img/mine.jpg);
+}

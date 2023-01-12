@@ -1,3 +1,4 @@
+/* GENERICS */
 body {
   height: 95.1vh;
   background-image: linear-gradient(#009688 15%, #dcdbd2 15%, #dcdbd2);
@@ -5,31 +6,38 @@ body {
 
 li {
   list-style: none;
+  cursor: pointer;
 }
 
 .container > .row {
   height: 800px;
   background-color: white;
 }
-
-.col-4 {
-  border-right: 1px solid black;
-}
-
-.profile-pic {
+.round-pic {
   height: 70px;
   width: 70px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-#sidebar {
-  position: relative;
-}
 #sidebar header > div:first-child i,
 #main-content header i,
 #main-content footer i {
+  padding: 10px;
+  cursor: pointer;
   color: #b1b1b1;
+}
+
+#sidebar header > div:first-child,
+#main-content header,
+#main-content footer {
+  height: 80px;
+  background-color: #eaeaea;
+}
+
+/* SIDEBAR */
+#sidebar {
+  border-right: 1px solid black;
 }
 
 #sidebar header > div:nth-child(2) {
@@ -51,15 +59,24 @@ li {
   border-bottom: 1px solid grey;
 }
 
-#sidebar header > div:first-child,
-#main-content header,
-#main-content footer {
-  height: 80px;
-  background-color: #eaeaea;
-}
-
+/* MAIN-CONTENT */
 #main-content main {
   height: 640px;
   overflow-y: auto;
   background-image: url(../img/mine.jpg);
+}
+
+.user-message {
+  background-color: #d5f9ba;
+}
+
+.contact-message {
+  background-color: white;
+}
+
+.user-message,
+.contact-message {
+  border-radius: 40px;
+  margin: 15px;
+  padding: 20px;
 }

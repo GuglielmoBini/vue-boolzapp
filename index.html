@@ -158,6 +158,8 @@
                     class="form-control"
                     type="text"
                     placeholder="Scrivi un messaggio"
+                    v-model.trim="newMessage.text"
+                    @keyup.enter="addMessage"
                   />
                 </div>
                 <div

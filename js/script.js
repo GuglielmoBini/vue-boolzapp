@@ -3,7 +3,15 @@ const app = Vue.createApp({
   name: "Boolzapp",
   data() {
     return {
+      // current index
       currentIndex: 0,
+      // nuovo messaggio
+      newMessage: {
+        date: "",
+        text: "",
+        status: "sent",
+      },
+      //user
       user: {
         name: "Guglielmo Bini",
         avatar: "_io",
@@ -105,8 +113,22 @@ const app = Vue.createApp({
     },
   },
   methods: {
+    // funzione per settare l'index
     setCurrentIndex(index) {
       this.currentIndex = index;
+    },
+    // funzione per aggiungere un messaggio
+    addMessage() {
+      if (!this.newMessage.text) {
+        return;
+      } else {
+        this.currentChat.push(this.newMessage);
+        this.newMessage = {
+          date: "",
+          text: "",
+          status: "sent",
+        };
+      }
     },
   },
 });

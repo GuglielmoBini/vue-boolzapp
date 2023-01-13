@@ -3,6 +3,10 @@ const app = Vue.createApp({
   name: "Boolzapp",
   data() {
     return {
+      user: {
+        name: "Guglielmo Bini",
+        avatar: "_io",
+      },
       // array di oggetti
       contacts: [
         {

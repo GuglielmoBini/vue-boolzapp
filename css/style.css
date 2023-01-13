@@ -1,18 +1,23 @@
 /* GENERICS */
 body {
-  height: 95.1vh;
-  background-image: linear-gradient(#009688 15%, #dcdbd2 15%, #dcdbd2);
+  height: 100vh;
+  padding-top: 50px;
+  background-image: linear-gradient(#009688 15%, #dcdbd2 15%);
 }
 
-li {
-  list-style: none;
-  cursor: pointer;
-}
-
-.container > .row {
+#boolzapp {
   height: 800px;
   background-color: white;
 }
+
+#user,
+#chat-header,
+#chat-footer {
+  height: 80px;
+  background-color: #eaeaea;
+}
+
+/* MEDIA */
 .round-pic {
   height: 70px;
   width: 70px;
@@ -20,47 +25,47 @@ li {
   object-fit: cover;
 }
 
-#sidebar header > div:first-child i,
-#main-content header i,
-#main-content footer i {
+/* ICONS */
+#user i,
+#chat-header i,
+#chat-footer i {
   padding: 10px;
   cursor: pointer;
   color: #b1b1b1;
 }
 
-#sidebar header > div:first-child,
-#main-content header,
-#main-content footer {
-  height: 80px;
-  background-color: #eaeaea;
-}
-
 /* SIDEBAR */
-#sidebar {
+#sidebar.col-4 {
   border-right: 1px solid black;
 }
 
-#sidebar header > div:nth-child(2) {
+#notifications {
   height: 100px;
   background-color: #8edafc;
 }
 
-#sidebar header > div:last-child {
+#search-bar {
   height: 60px;
   background-color: #eaeaea;
 }
 
-#list {
+#contact-list {
   height: 560px;
   overflow-y: auto;
 }
 
-#list li {
-  border-bottom: 1px solid grey;
+#contact-list li {
+  list-style: none;
+  border-bottom: 1px solid lightgrey;
 }
 
-/* MAIN-CONTENT */
-#main-content main {
+#contact-list li:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+/* CHAT-CONTENT */
+#chat {
   height: 640px;
   overflow-y: auto;
   background-image: url(../img/mine.jpg);

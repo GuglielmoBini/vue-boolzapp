@@ -1,3 +1,5 @@
+const dateTime = luxon.DateTime;
+
 // creo app
 const app = Vue.createApp({
   name: "Boolzapp",
@@ -7,9 +9,15 @@ const app = Vue.createApp({
       currentIndex: 0,
       // nuovo messaggio
       newMessage: {
-        date: "",
+        date: this.getMoment(),
         text: "",
         status: "sent",
+      },
+      // nuova risposta
+      newReply: {
+        date: this.getMoment(),
+        text: "Ok!",
+        status: "received",
       },
       //user
       user: {
@@ -124,11 +132,26 @@ const app = Vue.createApp({
       } else {
         this.currentChat.push(this.newMessage);
         this.newMessage = {
-          date: "",
+          date: this.getMoment(),
           text: "",
           status: "sent",
         };
+        setTimeout(() => {
+          this.currentChat.push(this.newReply);
+        }, 2000);
       }
+    },
+    getMoment() {
+      return dateTime
+        .now()
+        .setLocale("it")
+        .toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
+    },
+    currentDate() {
+      return dateTime
+        .now()
+        .setLocale("it")
+        .toLocaleString(dateTime.DATETIME_SHORT);
     },
   },
 });

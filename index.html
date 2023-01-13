@@ -21,6 +21,8 @@
     />
     <!-- STYLE.CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- LUXON -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
     <!-- VUE.JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JAVASCRIPT -->
@@ -121,6 +123,7 @@
                 </div>
                 <div>
                   <h6 class="mb-0">{{currentContact.name}}</h6>
+                  <span> Last online: {{currentDate()}}</span>
                 </div>
                 <div
                   class="d-flex align-items-center flex-grow-1 justify-content-end"

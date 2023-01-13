@@ -3,6 +3,7 @@ const app = Vue.createApp({
   name: "Boolzapp",
   data() {
     return {
+      currentIndex: 0,
       user: {
         name: "Guglielmo Bini",
         avatar: "_io",
@@ -49,7 +50,7 @@ const app = Vue.createApp({
             {
               date: "20/03/2020 16:35:00",
               text: "Mi piacerebbe ma devo andare a fare la spesa.",
-              status: "received",
+              status: "sent",
             },
           ],
         },
@@ -94,6 +95,19 @@ const app = Vue.createApp({
         },
       ],
     };
+  },
+  computed: {
+    currentContact() {
+      return this.contacts[this.currentIndex];
+    },
+    currentChat() {
+      return this.currentContact.messages;
+    },
+  },
+  methods: {
+    setCurrentIndex(index) {
+      this.currentIndex = index;
+    },
   },
 });
 

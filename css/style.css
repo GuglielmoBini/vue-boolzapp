@@ -1,12 +1,30 @@
+/* CUSTOM PROPERTIES */
+:root {
+  --green: #009688;
+  --bg-gray: #dcdbd2;
+  --bg-chat: #ece5dd;
+  --light-blue: #8edafc;
+  --sent: #d5f9ba;
+  --light-gray: #eaeaea;
+  --darker-gray: #222e35;
+}
+
 /* GENERICS */
 body {
   height: 100vh;
   padding-top: 50px;
-  background-image: linear-gradient(#009688 15%, #dcdbd2 15%);
+  background-image: linear-gradient(var(--green) 15%, var(--bg-gray) 15%);
+}
+
+main {
+  height: 90%;
+}
+
+li {
+  list-style: none;
 }
 
 #boolzapp {
-  height: 800px;
   background-color: white;
 }
 
@@ -14,7 +32,7 @@ body {
 #chat-header,
 #chat-footer {
   height: 80px;
-  background-color: #eaeaea;
+  background-color: var(--light-gray);
 }
 
 /* MEDIA */
@@ -31,7 +49,13 @@ body {
 #chat-footer i {
   padding: 10px;
   cursor: pointer;
-  color: #b1b1b1;
+  color: var(--darker-gray);
+}
+
+#user i:hover,
+#chat-header i:hover,
+#chat-footer i:hover {
+  color: var(--green);
 }
 
 /* SIDEBAR */
@@ -41,21 +65,19 @@ body {
 
 #notifications {
   height: 100px;
-  background-color: #8edafc;
+  background-color: var(--light-blue);
 }
 
 #search-bar {
   height: 60px;
-  background-color: #eaeaea;
+  background-color: var(--light-gray);
 }
 
 #contact-list {
-  height: 560px;
   overflow-y: auto;
 }
 
 #contact-list li {
-  list-style: none;
   border-bottom: 1px solid lightgrey;
 }
 
@@ -66,22 +88,40 @@ body {
 
 /* CHAT-CONTENT */
 #chat {
-  height: 640px;
   overflow-y: auto;
   background-image: url(../img/mine.jpg);
 }
 
-.user-message {
-  background-color: #d5f9ba;
+.message-container {
+  display: flex;
 }
 
-.contact-message {
+.message-container.sent {
+  justify-content: flex-end;
+}
+
+.message-container.received {
+  justify-content: flex-start;
+}
+
+.message-container.sent .message {
+  background-color: var(--sent);
+}
+
+.message-container.received .message {
   background-color: white;
 }
 
-.user-message,
-.contact-message {
-  border-radius: 40px;
-  margin: 15px;
-  padding: 20px;
+.message {
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.message > p {
+  font-size: 18px;
+}
+
+.message > div {
+  text-align: end;
+  font-size: 12px;
 }

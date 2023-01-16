@@ -5,17 +5,19 @@ const app = Vue.createApp({
   name: "Boolzapp",
   data() {
     return {
+      // last online
+      lastOnline: this.currentTime(),
       // current index
       currentIndex: 0,
       // nuovo messaggio
       newMessage: {
-        date: this.getMoment(),
+        date: "",
         text: "",
         status: "sent",
       },
       // nuova risposta
       newReply: {
-        date: this.getMoment(),
+        date: "",
         text: "Ok!",
         status: "received",
       },
@@ -143,28 +145,41 @@ const app = Vue.createApp({
       if (!this.newMessage.text) {
         return;
       } else {
+        this.newMessage.date = this.getMoment();
         this.currentChat.push(this.newMessage);
         this.newMessage = {
-          date: this.getMoment(),
+          date: "",
           text: "",
           status: "sent",
         };
-        setTimeout(() => {
-          this.currentChat.push(this.newReply);
-        }, 2000);
+        this.addReply();
       }
     },
+    // funzione per aggiungere una risposta
+    addReply() {
+      setTimeout(() => {
+        this.newReply.date = this.getMoment();
+        this.currentChat.push(this.newReply);
+        this.newReply = {
+          date: "",
+          text: "Ok!",
+          status: "received",
+        };
+      }, 1000);
+    },
+    // momento corrente
     getMoment() {
       return dateTime
         .now()
         .setLocale("it")
         .toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
     },
-    currentDate() {
+    // data corrente
+    currentTime() {
       return dateTime
         .now()
         .setLocale("it")
-        .toLocaleString(dateTime.DATETIME_SHORT);
+        .toLocaleString(dateTime.TIME_24_SIMPLE);
     },
   },
 });

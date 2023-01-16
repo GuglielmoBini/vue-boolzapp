@@ -68,6 +68,10 @@ li {
   background-color: var(--light-blue);
 }
 
+#notifications p {
+  cursor: pointer;
+}
+
 #search-bar {
   height: 60px;
   background-color: var(--light-gray);

@@ -83,6 +83,7 @@
                     class="form-control"
                     type="text"
                     placeholder="Cerca o inizia una nuova chat..."
+                    v-model.trim="searchTerm"
                   />
                 </div>
               </div>
@@ -91,9 +92,9 @@
             <div id="contact-list" class="flex-grow-1">
               <ul class="my-0 px-0">
                 <li
-                  v-for="(contact, i) in contacts"
+                  v-for="contact in filteredContacts"
                   class="d-flex align-items-center"
-                  @click="setCurrentIndex(i)"
+                  @click="setCurrentIndex(contact.id)"
                 >
                   <div>
                     <img
@@ -138,7 +139,7 @@
             <div id="chat" class="flex-grow-1">
               <ul class="px-3 mt-3 mb-0">
                 <li
-                  v-for="(message, i) in currentChat"
+                  v-for="message in currentChat"
                   :class="`message-container p-3 ${message.status}`"
                 >
                   <div class="message">

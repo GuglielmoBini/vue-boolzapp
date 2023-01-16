@@ -19,6 +19,8 @@ const app = Vue.createApp({
         text: "Ok!",
         status: "received",
       },
+      // termine di ricerca
+      searchTerm: "",
       //user
       user: {
         name: "Guglielmo Bini",
@@ -27,6 +29,7 @@ const app = Vue.createApp({
       // array di oggetti
       contacts: [
         {
+          id: 0,
           name: "Michele",
           avatar: "_1",
           visible: true,
@@ -49,6 +52,7 @@ const app = Vue.createApp({
           ],
         },
         {
+          id: 1,
           name: "Fabio",
           avatar: "_2",
           visible: true,
@@ -71,6 +75,7 @@ const app = Vue.createApp({
           ],
         },
         {
+          id: 2,
           name: "Samuele",
           avatar: "_3",
           visible: true,
@@ -93,6 +98,7 @@ const app = Vue.createApp({
           ],
         },
         {
+          id: 3,
           name: "Luisa",
           avatar: "_4",
           visible: true,
@@ -119,11 +125,18 @@ const app = Vue.createApp({
     currentChat() {
       return this.currentContact.messages;
     },
+    filteredContacts() {
+      return this.contacts.filter((contact) => {
+        return contact.name
+          .toLowerCase()
+          .includes(this.searchTerm.toLowerCase());
+      });
+    },
   },
   methods: {
     // funzione per settare l'index
-    setCurrentIndex(index) {
-      this.currentIndex = index;
+    setCurrentIndex(id) {
+      this.currentIndex = id;
     },
     // funzione per aggiungere un messaggio
     addMessage() {
